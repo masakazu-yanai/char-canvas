@@ -4,7 +4,7 @@
  * @description    Draw Tool for Ascii Art.
  * @fileoverview   Character Canvas library
  * @author         Masakazu Yanai
- * @version        0.1.0
+ * @version        0.1.1
  * @date           2017-08-07
  * @link           https://github.com/masakazu-yanai/char-canvas
  * @copyright      Copyright (c) 2017 Masakazu Yanai <yanai@crocro.com>
@@ -456,6 +456,12 @@
 	//	 ,drawRate: '色の閾値の数値、1が濃く0になるほど薄くなる'
 	//   ,wRate: '横幅比率'
 	// }
+	// fontStyle は、書き方によって実際に適用されるスタイルが異なります。
+	// 
+	// ・フォント名のみ書いた場合→「fontSizePx + 'px ' + fontStyle」
+	// ・「bold 16px sans-serif」のように指定した場合→「fontStyle」がそのまま適用
+	// 
+	// 正規表現 /\dpx / に一致するかで判断しています。
 	CharCanvas.prototype.areaText = function(x, y, txtLine,
 	fontSizePx, fontStyle, drawRate, wRate) {
 		// 変数の初期化
@@ -475,7 +481,11 @@
 		cntxt.fillRect(0, 0, w, h);
 
 		cntxt.fillStyle = '#000';
-		cntxt.font = fontSizePx + 'px ' + fontStyle;
+		if (! fontStyle.match(/\dpx /)) {
+			cntxt.font = fontSizePx + 'px ' + fontStyle;
+		} else {
+			cntxt.font = fontStyle;
+		}
 		cntxt.textAlign = 'left';
 		cntxt.textBaseline = 'top';
 		cntxt.fillText(txtLine, 0, 0);
