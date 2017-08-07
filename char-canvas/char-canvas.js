@@ -6,7 +6,7 @@
  * @author         Masakazu Yanai
  * @version        0.1.0
  * @date           2017-08-07
- * @link           https://github.com/masakazu-yanai/CharCanvas.js
+ * @link           https://github.com/masakazu-yanai/char-canvas
  * @copyright      Copyright (c) 2017 Masakazu Yanai <yanai@crocro.com>
  * @license        licensed under the MIT license.
  *
