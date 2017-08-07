@@ -101,7 +101,7 @@ JavaScript用のライブラリです。文字キャンバスに対して処理�
 	cc.fillFnc('areaRect', ['/', ':',  '/'], 20, 7, 30, 7);
 
 	var mask = cc.areaCircle(45, 10, 14, 7)
-		.opAnd(cc.areaCircle(57, 10, 14, 7));
+	    .opAnd(cc.areaCircle(57, 10, 14, 7));
 	cc.fillArea(mask, '*');
 
 	cc.print();
@@ -143,7 +143,7 @@ JavaScript用のライブラリです。文字キャンバスに対して処理�
 以下では、作成したエリアをAND演算しています。
 
 	var mask = cc.areaCircle(45, 10, 14, 7)
-		.opAnd(cc.areaCircle(57, 10, 14, 7));
+	    .opAnd(cc.areaCircle(57, 10, 14, 7));
 
 作成したエリアは、「fillArea(バイナリ キャンバス, 塗り潰し文字か配列)」で塗り潰せます。
 
@@ -157,15 +157,15 @@ JavaScript用のライブラリです。文字キャンバスに対して処理�
 	var cc = new CharCanvas(70, 20, '-');
 
 	var mask = cc.areaCircle(-1, 10, 8, 6)
-		.opXor(cc.areaCircle(12, 10, 8, 6));
+	    .opXor(cc.areaCircle(12, 10, 8, 6));
 	cc.strokeArea(mask, '@');
 
 	var mask = cc.areaCircle(30, 10, 8, 6)
-		.opXor(cc.areaCircle(40, 10, 8, 6));
+	    .opXor(cc.areaCircle(40, 10, 8, 6));
 	cc.fillArea(mask, '&');
 
 	var mask = cc.areaCircle(58, 10, 8, 6)
-		.opXor(cc.areaCircle(71, 10, 8, 6));
+	    .opXor(cc.areaCircle(71, 10, 8, 6));
 	cc.strokeArea(mask, '@', true);
 
 	cc.print();
@@ -258,34 +258,34 @@ JavaScript用のライブラリです。文字キャンバスに対して処理�
 
 	var x = 0;
 	var ln = cc
-		.moveTo(x + 4,  1)
-		.lineTo(x + 16, 18)
-		.lineTo(x + 22, 6)
-		.lineTo(x + 15, 12)
-		.lineTo(x + 2,  12)
-		.close();
+	    .moveTo(x + 4,  1)
+	    .lineTo(x + 16, 18)
+	    .lineTo(x + 22, 6)
+	    .lineTo(x + 15, 12)
+	    .lineTo(x + 2,  12)
+	    .close();
 	cc.fillArea(ln, '@');
 
 	var x = 22;
 	var ln = cc
-		.moveTo(x + 4,  1)
-		.lineTo(x + 16, 18)
-		.lineTo(x + 22, 6)
-		.lineTo(x + 15, 12)
-		.lineTo(x + 2,  12)
-		.close()
-		.fillPath();
+	    .moveTo(x + 4,  1)
+	    .lineTo(x + 16, 18)
+	    .lineTo(x + 22, 6)
+	    .lineTo(x + 15, 12)
+	    .lineTo(x + 2,  12)
+	    .close()
+	    .fillPath();
 	cc.fillArea(ln, '@');
 
 	var x = 44;
 	var ln = cc
-		.areaPath(
-			x + 4,  1,
-			x + 16, 18,
-			x + 22, 8,
-			x + 15, 12,
-			x + 2,  12)
-		.fillPath();
+	    .areaPath(
+	        x + 4,  1,
+	        x + 16, 18,
+	        x + 22, 8,
+	        x + 15, 12,
+	        x + 2,  12)
+	    .fillPath();
 	cc.fillArea(ln, ['*', '+']);
 
 	cc.print();
@@ -363,7 +363,7 @@ Webブラウザ限定の機能です。HTML5のCanvasを利用しています。
 
 	var cc = new CharCanvas(70, 40, '-');
 	var mask = cc.areaText(2, -3, '顔貌', 20, 'sans-serif', 0.85, 1.7)
-		 .opOr(cc.areaText(5, 17, '売人', 20, 'sans-serif', 0.85, 1.6));
+	     .opOr(cc.areaText(5, 17, '売人', 20, 'sans-serif', 0.85, 1.6));
 	cc.fillArea(mask, '#');
 	cc.print();
 
