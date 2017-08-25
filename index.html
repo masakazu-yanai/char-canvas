@@ -5,28 +5,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
 	$(function() {
-		// HTMLo—Í
+		// HTMLå‡ºåŠ›
 		var outHtml = function(ttl, bdy) {
 			$('<h1>').text(ttl).appendTo('body');
 			$('<pre>').text(bdy).appendTo('body');
 		};
 
-		// ’Pˆê•¶š‚Ì”wŒi
-		console.log('’Pˆê•¶š‚Ì”wŒi');
+		// å˜ä¸€æ–‡å­—ã®èƒŒæ™¯
+		console.log('å˜ä¸€æ–‡å­—ã®èƒŒæ™¯');
 		var cc = new CharCanvas(70, 20, '-');
 		cc.print();
 
-		outHtml('’Pˆê•¶š‚Ì”wŒi', cc);
+		outHtml('å˜ä¸€æ–‡å­—ã®èƒŒæ™¯', cc);
 
-		// ”z—ñ‚Ì”wŒi
-		console.log('”z—ñ‚Ì”wŒi');
+		// é…åˆ—ã®èƒŒæ™¯
+		console.log('é…åˆ—ã®èƒŒæ™¯');
 		var cc = new CharCanvas(70, 20, ['*', '+', ':']);
 		cc.print();
 
-		outHtml('”z—ñ‚Ì”wŒi', cc);
+		outHtml('é…åˆ—ã®èƒŒæ™¯', cc);
 
-		// ‰~AlŠpAƒ‰ƒOƒr[ƒ{[ƒ‹
-		console.log('‰~AlŠpAƒ‰ƒOƒr[ƒ{[ƒ‹');
+		// å††ã€å››è§’ã€ãƒ©ã‚°ãƒ“ãƒ¼ãƒœãƒ¼ãƒ«
+		console.log('å††ã€å››è§’ã€ãƒ©ã‚°ãƒ“ãƒ¼ãƒœãƒ¼ãƒ«');
 		var cc = new CharCanvas(70, 20, '-');
 
 		cc.fillFnc('areaCircle', '@', 16, 10, 14, 7);
@@ -38,10 +38,10 @@
 
 		cc.print();
 
-		outHtml('‰~AlŠpAƒ‰ƒOƒr[ƒ{[ƒ‹', cc);
+		outHtml('å††ã€å››è§’ã€ãƒ©ã‚°ãƒ“ãƒ¼ãƒœãƒ¼ãƒ«', cc);
 
-		// O“úŒi“h‚èAüjAƒŠƒ“ƒO
-		console.log('O“úŒi“h‚èAüjAƒŠƒ“ƒO');
+		// ä¸‰æ—¥æœˆï¼ˆå¡—ã‚Šã€ç·šï¼‰ã€ãƒªãƒ³ã‚°
+		console.log('ä¸‰æ—¥æœˆï¼ˆå¡—ã‚Šã€ç·šï¼‰ã€ãƒªãƒ³ã‚°');
 		var cc = new CharCanvas(70, 20, '-');
 
 		var mask = cc.areaCircle(15, 10, 14, 7)
@@ -58,10 +58,10 @@
 
 		cc.print();
 
-		outHtml('O“úŒi“h‚èAüjAƒŠƒ“ƒO', cc);
+		outHtml('ä¸‰æ—¥æœˆï¼ˆå¡—ã‚Šã€ç·šï¼‰ã€ãƒªãƒ³ã‚°', cc);
 
-		// •ª—ô‚·‚é‰~iü ’[ŠJ‚«A“h‚èAü ’[•Â‚¶j
-		console.log('•ª—ô‚·‚é‰~iü ’[ŠJ‚«A“h‚èAü ’[•Â‚¶j');
+		// åˆ†è£‚ã™ã‚‹å††ï¼ˆç·š ç«¯é–‹ãã€å¡—ã‚Šã€ç·š ç«¯é–‰ã˜ï¼‰
+		console.log('åˆ†è£‚ã™ã‚‹å††ï¼ˆç·š ç«¯é–‹ãã€å¡—ã‚Šã€ç·š ç«¯é–‰ã˜ï¼‰');
 		var cc = new CharCanvas(70, 20, '-');
 
 		var mask = cc.areaCircle(-1, 10, 8, 6)
@@ -78,10 +78,10 @@
 
 		cc.print();
 
-		outHtml('•ª—ô‚·‚é‰~iü ’[ŠJ‚«A“h‚èAü ’[•Â‚¶j', cc);
+		outHtml('åˆ†è£‚ã™ã‚‹å††ï¼ˆç·š ç«¯é–‹ãã€å¡—ã‚Šã€ç·š ç«¯é–‰ã˜ï¼‰', cc);
 
-		// ƒpƒX
-		console.log('ƒpƒX');
+		// ãƒ‘ã‚¹
+		console.log('ãƒ‘ã‚¹');
 		var cc = new CharCanvas(70, 20, '-');
 
 		var x = 0;
@@ -118,26 +118,67 @@
 
 		cc.print();
 
-		outHtml('ƒpƒX', cc);
+		outHtml('ãƒ‘ã‚¹', cc);
 
-		// •¶š—ñ‚Ì•`‰æ
-		console.log('•¶š—ñ‚Ì•`‰æ');
+		// æ–‡å­—åˆ—ã®æç”»
+		console.log('æ–‡å­—åˆ—ã®æç”»');
 		var cc = new CharCanvas(70, 20, '-');
 		cc.drawText(10, 5, 'hello world!\nThis is a CharCanvas.');
-		cc.drawTextZ(10, 10, '‚±‚ñ‚É‚¿‚Í¢ŠE!!\n‚±‚ê‚ÍA•¶šƒLƒƒƒ“ƒoƒX‚Å‚·B');
+		cc.drawTextZ(10, 10, 'ã“ã‚“ã«ã¡ã¯ä¸–ç•Œ!!\nã“ã‚Œã¯ã€æ–‡å­—ã‚­ãƒ£ãƒ³ãƒã‚¹ã§ã™ã€‚');
 		cc.print();
 
-		outHtml('•¶š—ñ‚Ì•`‰æ', cc);
+		outHtml('æ–‡å­—åˆ—ã®æç”»', cc);
 
-		// •¶š—ñ‚Ì•`‰æ }Œ`‚Æ‚µ‚Ä
-		console.log('•¶š—ñ‚Ì•`‰æ }Œ`‚Æ‚µ‚Ä(Webƒuƒ‰ƒEƒU”Å‚Ì‚İ)');
+		// æ–‡å­—åˆ—ã®æç”» å›³å½¢ã¨ã—ã¦
+		console.log('æ–‡å­—åˆ—ã®æç”» å›³å½¢ã¨ã—ã¦(Webãƒ–ãƒ©ã‚¦ã‚¶ç‰ˆã®ã¿)');
 		var cc = new CharCanvas(70, 40, '-');
-		var mask = cc.areaText(2, -3, 'Šç–e', 20, 'sans-serif', 0.85, 1.7)
-			 .opOr(cc.areaText(5, 17, '”„l', 20, 'sans-serif', 0.85, 1.6));
+		var mask = cc.areaText(2, -3, 'é¡”è²Œ', 20, 'sans-serif', 0.85, 1.7)
+			 .opOr(cc.areaText(5, 17, 'å£²äºº', 20, 'sans-serif', 0.85, 1.6));
 		cc.fillArea(mask, '#');
 		cc.print();
 
-		outHtml('•¶š—ñ‚Ì•`‰æ }Œ`‚Æ‚µ‚Ä', cc);
+		outHtml('æ–‡å­—åˆ—ã®æç”» å›³å½¢ã¨ã—ã¦', cc);
+
+        // ãƒ™ãƒ³å›³ã‚’æã AND
+		var cc = new CharCanvas(70, 20, '-');
+		var area0 = cc.areaCircle(20, 10, 20, 9);
+		var area1 = cc.areaCircle(45, 10, 20, 9);
+
+		cc.fillArea(area0.opAnd(area1), '@');
+		cc.strokeArea(area0, '#');
+		cc.strokeArea(area1, '#');
+		cc.print();
+
+		outHtml('ãƒ™ãƒ³å›³ã‚’æã AND', cc);
+
+        // ãƒ™ãƒ³å›³ã‚’æã XOR
+		var cc = new CharCanvas(70, 20, '-');
+		var area0 = cc.areaCircle(20, 10, 20, 9);
+		var area1 = cc.areaCircle(45, 10, 20, 9);
+
+		cc.fillArea(area0.opXor(area1), ['/', '+']);
+		cc.strokeArea(area0, '#');
+		cc.strokeArea(area1, '#');
+		cc.print();
+
+		outHtml('ãƒ™ãƒ³å›³ã‚’æã XOR', cc);
+
+		// ãƒãƒªã‚´ãƒ³ã‚‚ã©ã
+		var cc = new CharCanvas(70, 20, '-');
+		var pnt = [
+		{arr: [10, 5, 11, 15, 35, 18, 35, 8], c: 'X'},
+		{arr: [[60, 5], [59, 15], [35, 18], [35, 8]], c: '#'},
+		{arr: [{x:10, y:5}, {x:35, y:8}, {x:60, y:5}, {x:35, y:1}], c: '+'}
+		];
+
+		pnt.forEach(x => {
+			var plygn = cc.areaPath(x.arr).fillPath();
+			cc.fillArea(plygn, x.c);
+		});
+		cc.print();
+
+		outHtml('ãƒãƒªã‚´ãƒ³ã‚‚ã©ã', cc);
+
 	});
   </script>
   <style>

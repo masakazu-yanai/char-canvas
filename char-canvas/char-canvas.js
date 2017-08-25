@@ -4,8 +4,8 @@
  * @description    Draw Tool for Ascii Art.
  * @fileoverview   Character Canvas library
  * @author         Masakazu Yanai
- * @version        0.1.1
- * @date           2017-08-07
+ * @version        0.2.0
+ * @date           2017-08-25
  * @link           https://github.com/masakazu-yanai/char-canvas
  * @copyright      Copyright (c) 2017 Masakazu Yanai <yanai@crocro.com>
  * @license        licensed under the MIT license.
@@ -62,6 +62,40 @@
 		var re = new RegExp('.{' + this.w + '}', 'g');
 		var t = this.canvas.join('').match(re).join('\n').replace(/\t/g, '');
 		return t;
+	};
+
+	// # クローン
+	// @return クローンした文字キャンバス。
+	CharCanvas.prototype.clone = function() {
+		var t = this;
+		var t2 = new CharCanvas(t.w, t.h, '0');
+		t2.canvas = [].concat(t.canvas);
+		return t2;
+	};
+
+	// # 点シリアライズ
+	// @return 直列化した文字の配列
+	CharCanvas.prototype.serializePoint = function(arr) {
+		var t = this;
+		var res = [];
+		if (Array.isArray(arr[0])) {
+			if (arr.length == 1) {
+				res = t.serializePoint(arr[0]);
+			} else {
+				arr.forEach(x => {
+					Array.prototype.push.apply(res, t.serializePoint(x));
+				});
+			}
+		} else
+		if (arr[0] && arr[0].x !== undefined && arr[0].y !== undefined) {
+			arr.forEach(o => {
+				res.push(o.x);
+				res.push(o.y);
+			});
+		} else {
+			res = arr;
+		}
+		return res;
 	};
 
 	// # 1マス書く
@@ -163,7 +197,7 @@
 	// 2つのバイナリ キャンバスをAND演算。
 	// 自身を背面、引数を前面として計算する。
 	CharCanvas.prototype.opAnd = function(cc) {
-		var t = this;
+		var t = this.clone();
 		t.scan((x, y) => {
 			var tOne  = t.get(x, y)  === 1;
 			var ccOne = cc.get(x, y) === 1;
@@ -179,7 +213,7 @@
 	// 2つのバイナリ キャンバスをNOT演算。
 	// 自身を背面、引数を前面として計算する。
 	CharCanvas.prototype.opNot = function(cc) {
-		var t = this;
+		var t = this.clone();
 		t.scan((x, y) => {
 			var tOne   = t.get(x, y)  === 1;
 			var ccZero = cc.get(x, y) === 0;
@@ -195,7 +229,7 @@
 	// 2つのバイナリ キャンバスをOR演算。
 	// 自身を背面、引数を前面として計算する。
 	CharCanvas.prototype.opOr = function(cc) {
-		var t = this;
+		var t = this.clone();
 		t.scan((x, y) => {
 			var tOne  = t.get(x, y)  === 1;
 			var ccOne = cc.get(x, y) === 1;
@@ -211,7 +245,7 @@
 	// 2つのバイナリ キャンバスをXOR演算。
 	// 自身を背面、引数を前面として計算する。
 	CharCanvas.prototype.opXor = function(cc) {
-		var t = this;
+		var t = this.clone();
 		t.scan((x, y) => {
 			var tBin  = t.get(x, y);
 			var ccBin = cc.get(x, y);
@@ -303,8 +337,13 @@
 	//    arg : '引数2つずつが、X座標、Y座標に相当'
 	// }
 	// X座標0、Y座標0、X座標1、Y座標1、X座標2、Y座標2……のように座標を指定。
+	// ver 0.2.0以降。以下の形式でも可能。
+	// 配列　[X座標0、Y座標0、X座標1、Y座標1、X座標2、Y座標2……]
+	// 点の配列1　[[X座標0、Y座標0]、[X座標1、Y座標1]……]
+	// 点の配列2　[{x:X座標0、y:Y座標0}、{x:X座標1、y:Y座標1}……]
 	CharCanvas.prototype.areaPath = function() {
-		var cc, arg = arguments;
+		var cc, arg = this.serializePoint(arguments);
+
 		for (var i = 0; i < arg.length; i += 2) {
 			if (i == 0) {
 				cc = this.moveTo(arg[i], arg[i + 1]);

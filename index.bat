@@ -8,7 +8,6 @@ exit
 	//------------------------------------------------------------
 	// モジュールの読み込み
 	var CharCanvas = require('./char-canvas');
-
 	// 単一文字の背景
 	console.log('単一文字の背景');
 	var cc = new CharCanvas(70, 20, '-');
